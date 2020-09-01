@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Same!">
+
+
+
+
+
+<title>Django 入門 | Same!</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Same!&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Same!&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Django 入門</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Same!</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">July 27, 2020&nbsp;&nbsp;11:21:20</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p><a href="https://www.djangoproject.com/start/" target="_blank" rel="noopener">Django</a>是<a href="https://www.python.org/" target="_blank" rel="noopener">python</a>最受歡迎的兩大web框架之一 (另一個是flask), 相較於flask, Django功能很多, 也相對肥大. 這對於初學者來說較友善, 因為它對於常見的web app功能都有完整的支援; 如果經驗老道, 很清楚自己要什麼, 那flask是個不錯的選擇.</p>
+<p>先弄好以下：python3, python3 的虛擬環境, 某款python的ide (以下以PyCharm為準), 這部分就不多說了, 自己找資料吧!</p>
+<p>搞定之後在pycharm開一個新的project, 類型選django, 其它目錄跟路徑選項就依照個人喜好去設定…應該沒有什麼要改的, 取個名字吧, 例如 myProjectName之類的</p>
+<p>開好之後在<a href="https://www.iterm2.com/" target="_blank" rel="noopener">iTerm2</a>試試看 <code>bash python manage.py runserver</code>, 如果一切順利的話應該會成功啟動. 這是用Django內建一個很陽春的開發用web server, 真的生產環境不會這樣搞. ctrl - C 可以關掉這個server</p>
+<p>接著要建立一個”app”, 可以想像成一個project下面切割出來些功能的獨立個體, 可以在不同project間重複利用: 同樣在<a href="https://www.iterm2.com/" target="_blank" rel="noopener">iTerm2</a> 打 <code>bash python manage.py startapp genericSignup</code>, 顯然名稱自己可以取合適的..這邊我們想做個簡單的活動報名網站, 所以取這名字</p>
+<p>這時Django會自動在project目錄下建立一個新的genericSignup目錄.</p>
+<p>我們來寫一個最基本的hello world畫面吧：在genericSignup目錄下的views.py裡面打上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from django.http import HttpResponse</span><br><span class="line">def index(request):</span><br><span class="line">    <span class="built_in">return</span> HttpResponse(<span class="string">'hello world string'</span>)</span><br></pre></td></tr></table></figure>
+<p>這就是個最陽春, 不管怎樣就回覆hello world的一個頁面啦</p>
+<p>接著我們需要把這頁面跟網址產生關聯; 在genericSignup目錄下開一個新的urls.py檔案, 這邊留意下, 根目錄下面會有一個自動產生的myProjectName目錄, 裡面也有個urls.py, 這我們等下也會用到, 但先別搞混了!</p>
+<p>在app目錄下的urls.py打上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from django.conf.urls import url</span><br><span class="line">from . import views</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(r<span class="string">'^$'</span>, views.index, name= <span class="string">'mySignupHomepageName'</span>)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>這邊views.index指的就是我們剛才在views.py裡面定義的index, 而前面那段regex就是匹配URL的規則, 後面我們幫這個頁面取個名稱 mySignupHomepageName. 接著我們需要在project層級的urls.py裡面註冊這個app層級的urls.py規則:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from django.conf.urls import url, include (新增include)</span><br></pre></td></tr></table></figure>
+<p>並且在urlpatterns裡面新增 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url(r<span class="string">'^signup/'</span>, include(<span class="string">'genericSignup.urls'</span>)),</span><br></pre></td></tr></table></figure>
+<p>如果沒有意外, 原本應該是只有這條</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url(r<span class="string">'^admin/'</span>, admin.site.urls)</span><br></pre></td></tr></table></figure>
+<p>這是Django很強大的自動生成的管理者後台, 我們之後會再介紹.</p>
+<p>ok這時我們可以執行 (python manage.py runserver 或按pycharm的執行按鈕) 看看, 到 <a href="http://127.0.0.1:8000/signup/" target="_blank" rel="noopener">http://127.0.0.1:8000/signup/</a> 應該就能看到我們先前設定的字串 hello world string</p>
+<p>接下來我們可以設定database, 因為我們很懶惰, 所以我們要用SQLite, 這樣就不用另外安裝或跑一套db了, 實際上, Django對於MySQL或PostgreSQL都有很完整的支援, 設定起來也不難; 在myProjectName子目錄下面打開settings.py, 找到 DATABASES這個項目:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.sqlite3'</span>,</span><br><span class="line"> <span class="string">'NAME'</span>: os.path.join(BASE_DIR, <span class="string">'db.sqlite3'</span>),</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>改成你想要用的db就好, 目前我們裝死繼續用sqlite..對了既然我們都打開settings.py了, 順便找到TIME_ZONE這兒, 把時區改成 Asia/Shanghai 吧, 完整的時區名稱列表請見: <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</a></p>
+<p>確認了我們的database之後, 我們用以下指令建立一些最基本以及必須的table:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+
+<p>一切順利的話應該會看到一堆 ok</p>
+<p>接下來我們要開始建立我們的資料model, 在app目錄下的models.py定義如下的結構：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Region(models.Model):</span><br><span class="line">    REGION_TYPES = (</span><br><span class="line">        (<span class="string">'C'</span>, <span class="string">'China'</span>),</span><br><span class="line"> (<span class="string">'T'</span>, <span class="string">'Taiwan'</span>),</span><br><span class="line"> (<span class="string">'H'</span>, <span class="string">'Hong Kong'</span>),</span><br><span class="line"> (<span class="string">'M'</span>, <span class="string">'Malaysia'</span>),</span><br><span class="line"> (<span class="string">'O'</span>, <span class="string">'Other'</span>),</span><br><span class="line"> )</span><br><span class="line">    region_name = models.CharField(max_length=1, choices=REGION_TYPES)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Conference(models.Model):</span><br><span class="line">    conf_name = models.CharField(max_length=100)</span><br><span class="line">    conf_description = models.CharField(max_length=500)</span><br><span class="line">    total_attendees = models.IntegerField(default=0)</span><br><span class="line">    CONF_TYPES = (</span><br><span class="line">        (<span class="string">'I'</span>, <span class="string">'IDA'</span>),</span><br><span class="line"> (<span class="string">'W'</span>, <span class="string">'WCIC'</span>),</span><br><span class="line"> (<span class="string">'C'</span>, <span class="string">'CIA500'</span>),</span><br><span class="line"> )</span><br><span class="line">    conf_type = models.CharField(max_length=1, choices=CONF_TYPES)</span><br><span class="line">    region = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True)</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">class Attendee(models.Model):</span><br><span class="line">    attendee_name = models.CharField(max_length=50)</span><br><span class="line">    join_date = models.DateTimeField(<span class="string">'date that user signed up'</span>)</span><br><span class="line">    region = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True)</span><br><span class="line">    conferences = models.ManyToManyField(Conference)</span><br></pre></td></tr></table></figure>
+
+
+<p>我們定義了三個model,首先是區域Region, 這邊示範了如果我們想要某個欄位只有某些特定選項可以選的話, 如何定義. 接著是參會者Attendee, 以及會議Conference. 這邊簡單示範了不同格式(DateTimeField時間格式), 以及 一對多, 多對多的關聯如何定義</p>
+<p>注意到多對多的關係不應該雙方都定義, 所以我們並不會在Conference裡面額外增加一個manytomany的attendee屬性</p>
+<p>定義完model之後, 我們要回到settings.py, 跟project註冊genericSignup這個app的存在. 我們在 INSTALLED_APPS新增以下一條:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">'genericSignup.apps.GenericsignupConfig'</span>,</span><br></pre></td></tr></table></figure>
+<p>接下來要新增database的相關table跟column, 我們回到<a href="https://www.iterm2.com/" target="_blank" rel="noopener">iTerm2</a>打入 <code>bash python manage.py makemigrations genericSignup</code><br>這是告訴Django說我們有更動model資料結構, 讓它生成相對應的SQL代碼. 接著我們用 python manage.py migrate 將生成的migration實際執行</p>
+<p>接下來我們加入幾個方法：在三個model的class底下分別加入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def __str__(self):</span><br><span class="line">    <span class="built_in">return</span> self.region_name</span><br><span class="line">def __str__(self):</span><br><span class="line">    <span class="built_in">return</span> self.conf_name</span><br><span class="line">def __str__(self):</span><br><span class="line">    <span class="built_in">return</span> self.attendee_name</span><br></pre></td></tr></table></figure>
+<p><strong>str</strong> 是Model的內建方法, 這是在定義個方便的顯示名稱, 例如之後我們在admin介面這些model的顯示名稱就會由這個方法定義.</p>
+<p>我們額外在Attendee底下增加一個方法:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def joined_recently(self):</span><br><span class="line">    <span class="built_in">return</span> self.join_date &gt;= timezone.now() - datetime.timedelta(days=1)</span><br></pre></td></tr></table></figure>
+<p>記得要先 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from django.utils import timezone</span><br><span class="line">import datetime</span><br></pre></td></tr></table></figure>
+<p>顧名思義, 這個自訂方法判斷的是join date</p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/08/05/FI_EXHAUST/">FI EXHAUST</a>
+            
+            
+            <a class="next" rel="next" href="/2020/07/24/hello-world/">Hello World</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Same! | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
